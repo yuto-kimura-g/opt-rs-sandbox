@@ -94,3 +94,8 @@ v=[1.0, 1.0, 1.0]
 z=1
 b=0
 ```
+
+## references
+- <https://github.com/rust-or/good_lp>
+- <https://docs.rs/good_lp/latest/good_lp/index.html>
+- <https://crates.io/crates/good_lp>
