@@ -1,9 +1,9 @@
 [package]
-name = "opt-rs-playground"
+name = "opt-rs-sandbox"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-good_lp = "1.8.1"
+good_lp = { version = "1.12.0", features = ["coin_cbc", "highs"], default-features = false }

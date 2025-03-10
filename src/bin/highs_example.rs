@@ -1,8 +1,6 @@
-// https://github.com/rust-or/good_lp/blob/main/tests/readme_example.rs
-
 use std::error::Error;
 
-use good_lp::{constraint, solvers::coin_cbc, variables, Expression, Solution, SolverModel};
+use good_lp::{constraint, solvers::highs, variables, Expression, Solution, SolverModel};
 
 fn main() -> Result<(), Box<dyn Error>> {
     variables! {
@@ -11,9 +9,10 @@ fn main() -> Result<(), Box<dyn Error>> {
           2 <= b <= 4;
     } // variables can also be added dynamically
     let objective: Expression = 10 * (a - b / 5) - b;
-    let solution: coin_cbc::CoinCbcSolution = vars
+    let solution: highs::HighsSolution = vars
         .maximise(objective.clone())
-        .using(coin_cbc::coin_cbc) // multiple solvers available
+        // .using(coin_cbc::coin_cbc) // multiple solvers available
+        .using(highs::highs) // multiple solvers available
         .with(constraint!(a + 2 <= b))
         .with(constraint!(1 + a >= 4 - b))
         .solve()?;

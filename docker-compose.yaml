@@ -1,0 +1,13 @@
+services:
+  sandbox:
+    container_name: opt-rs-sandbox
+    build: .
+    platform: linux/amd64
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/sandbox
+    working_dir: /sandbox
+    environment:
+      - CARGO_TARGET_DIR=/sandbox/target
+      - PMIP_HIGHS_LIBRARY=/usr/local/lib/libhighs.so
